@@ -37,6 +37,9 @@ def practice(user):
     if user == "valter":
         num_problems = 10
         max_table = 6
+    elif user == "david":
+        num_problems = 10
+        max_table= 9
     else:  # lovisa
         num_problems = 20
         max_table = 9
@@ -105,7 +108,8 @@ if __name__ == "__main__":
         os.makedirs("data", exist_ok=True)
         initial = {
             "valter": {"total_correct": 0, "table_stats": {str(i): 0 for i in range(2, 7)}, "times": []},
-            "lovisa": {"total_correct": 0, "table_stats": {str(i): 0 for i in range(2, 10)}, "times": []}
+            "lovisa": {"total_correct": 0, "table_stats": {str(i): 0 for i in range(2, 10)}, "times": []},
+            "david": {"total_correct": 0, "table_stats": {str(i): 0 for i in range(2, 12)}, "times": []}
         }
         save_data(initial)
 
