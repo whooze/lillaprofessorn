@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+<div class="container">
+    <h1>Admin – Hantera användare</h1>
+
+    <h2>Lägg till användare</h2>
+    <form method="POST">
+        <input type="hidden" name="action" value="add">
+        <input type="text" name="username" placeholder="Användarnamn" required>
+        <input type="number" name="max_table" value="9" min="2" max="12">
+        <button type="submit">Lägg till</button>
+    </form>
+
+    <h2>Nuvarande användare</h2>
+    <table class="stats-table">
+        <tr>
+            <th>Användare</th>
+            <th>Total Correct</th>
+            <th>Åtgärder</th>
+        </tr>
+        {% for user, info in users.items() %}
+        <tr>
+            <td>{{ user }}</td>
+            <td>{{ info.total_correct }}</td>
+            <td>
+                <form method="POST" style="display:inline;">
+                    <input type="hidden" name="action" value="delete">
+                    <input type="hidden" name="username" value="{{ user }}">
+                    <button type="submit">Ta bort</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <a class="btn" href="/">Till startsidan</a>
+</div>
+</body>
+</html>
