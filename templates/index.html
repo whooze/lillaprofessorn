@@ -11,10 +11,10 @@
         <h2>Välj vem som ska träna</h2>
 
         <div class="card" style="text-align:center;">
-            <a class="btn" href="/dashboard/valter">Valter</a>
-            <a class="btn" href="/dashboard/lovisa">Lovisa</a>
-            <a class="btn" href="/dashboard/david">David</a>
-        </div>
+    {% for user in users %}
+        <a class="btn" href="/dashboard/{{ user }}">{{ user.capitalize() }}</a>
+    {% endfor %}
+</div>
     </div>
 
 </body>
